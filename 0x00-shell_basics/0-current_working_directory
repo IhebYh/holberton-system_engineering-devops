@@ -1,2 +1,2 @@
 #!/bin/bash
-dirname realpath $0\n
+$(dirname "$(readlink -f "$BASH_SOURCE")")\n
