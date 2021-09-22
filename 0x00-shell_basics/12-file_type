@@ -1,2 +1,2 @@
 #!/bin/bash
-'file /tmp/iamafile -e' \n
+file /tmp/iamafile 
