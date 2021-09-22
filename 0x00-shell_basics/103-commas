@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -pmva
+ls -pamv
