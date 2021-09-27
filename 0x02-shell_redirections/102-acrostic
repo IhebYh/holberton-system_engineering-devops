@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -d' ' -f1 file
+cut -d' ' -f1 filecut -c1 | tr -d "/n" | paste -s -d ''
