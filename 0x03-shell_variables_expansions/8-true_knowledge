@@ -1,2 +1,2 @@
 #!/bin/basH
-echo $(($TRUEKNOWLEDGE+128))
+export TRUEKNOWLEDGE=1337 | echo $(($TRUEKNOWLEDGE+128))
