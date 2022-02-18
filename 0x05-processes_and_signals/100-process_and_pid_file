@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#handling different signals
+sudo bash -c "echo $$ > /var/run/myscript.pid"
+trap 'echo "Y U no love me?!"' SIGNINT
+trap 'sudo rm -f /var/run/myscript.pid;echo "I hate the kill command";exit' SIGTERM
+trap 'sudo rm -f /var/run/myscript.pid;exit' SIGQUIT
+
+while :
+do
+    echo "To infinity and beyond"
+done
