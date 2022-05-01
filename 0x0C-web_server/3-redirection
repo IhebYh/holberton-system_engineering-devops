@@ -2,6 +2,10 @@
 # installs nginx
 apt-get -y update
 apt-get -y install nginx
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chown -R "$USER":"$USER" /etc/nginx
 echo "Hello world" > /var/www/html/index.nginx-debian.html
-sed -i "/server_name _;/ a\\\trewrite ^/redirect 301 Moved Permanently" /etc/nginx/sites-available/default
-service nginx start
+l="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "26i $l" /etc/nginx/sites-available/default
+sudo service nginx restart
+sudo service nginx reload
