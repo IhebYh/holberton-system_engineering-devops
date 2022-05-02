@@ -1,34 +1,8 @@
 #redirect nginx
-exec {'apt-get-update':
-  command => '/usr/bin/apt-get update'
-}
-
-package {'apache2.2-common':
-  ensure  => 'absent',
-  require => Exec['apt-get-update']
-}
-
-package { 'nginx':
-  ensure  => 'installed',
-  require => Package['apache2.2-common']
-}
-
-service {'nginx':
-  ensure  =>  'running',
-  require => file_line['perform a redirection'],
-}
-
-file { '/var/www/html/index.nginx-debian.html':
-  ensure  => 'present',
-  content => 'Hellow World',
-  require =>  Package['nginx']
-}
-
-file_line { 'perform a redirection':
-  ensure  => 'present',
-  path    => '/etc/nginx/sites-enabled/default',
-  line    => 'rewrite ^/redirect_me/$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-  after   => 'root /var/www/html;',
-  require => Package['nginx'],
-  notify  => Service['nginx'],
-}
+exec {'/usr/bin/env sudo apt-get -y update': }
+exec {'/usr/bin/env sudo apt-get -y install nginx': }
+exec {'/usr/bin/env echo"Hellow World" > /var/www/html/index.nginx-debian.html': }
+exec {'/usr/bin/env sudo sed -i "26i \\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4  permanent;" /etc/nginx/sites-available/default': }
+exec {'/usr/bin/env sudo sed -i "27i \\\terror_page 404 /custom_404.html;" /etc/nginx/sites-available/default': }
+exec {'/usr/bin/env echo "Ceci n\'est pas une page" > /var/www/html/custom_404.html': }
+exec {'/usr/bin/env sudo service nginx start': }
