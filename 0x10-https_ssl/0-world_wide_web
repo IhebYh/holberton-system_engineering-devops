@@ -11,7 +11,7 @@ d=$1
 s=$2
 sub_list=( www lb-01 web-01 web-02 )
 verify () {
-   if [[ $d == "" ]]
+   if [[ $s == "" ]]
    then
 	for sub in "${sub_list[@]}"
 	do
