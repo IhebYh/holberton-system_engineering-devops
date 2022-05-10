@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 #Requirements:
-
 #  Your Bash script must be 7 lines long or less
 #  There must be a new line at the end of the file
 #  You respect Bash script requirements
@@ -13,4 +12,3 @@ sudo chown nginx:nginx /etc/nginx/ -R
 sudo chmod +rw /etc/nginx/nginx.conf
 pkill apache2
 su -c 'service nginx start' nginx
-
