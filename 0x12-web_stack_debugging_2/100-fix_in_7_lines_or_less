@@ -7,8 +7,7 @@
 #  You cannot use &&
 #  You cannot use wget
 #  You cannot execute your previous answer file (Do not include the name of the previous script in this one)
-sudo sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
-sudo chown nginx:nginx /etc/nginx/ -R
-sudo chmod +rw /etc/nginx/nginx.conf
+chmod 777 /etc/nginx/nginx.conf
 pkill apache2
-su -c 'service nginx start' nginx
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+sudo -u nginx service nginx start
