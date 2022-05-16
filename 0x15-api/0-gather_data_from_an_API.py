@@ -15,14 +15,14 @@ if __name__ == '__main__':
     total = 0
     url = "https://jsonplaceholder.typicode.com/users/" + id
     result = requests.get(url).json()
-    name = res.get('name')
+    name = result.get('name')
     url = "https://jsonplaceholder.typicode.com/todos/"
     result2 = requests.get(url).json()
     for r in result2:
-        if r.get('userId) == int(id):
+        if r.get('userId') == int(id):
             if r.get('completed') is True:
-                title.append(i['title'])
-                complete += 1
+                title.append(r['title'])
+                com += 1
             total += 1
     print("Employee {} is done with tasks({}/{}):"
           .format(name, com, total))
