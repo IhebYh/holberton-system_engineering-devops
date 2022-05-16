@@ -21,4 +21,4 @@ if __name__ == '__main__':
         writer = csv.writer(file_csv, quoting=csv.QUOTE_ALL)
         for task in req.json():
             writer.writerow([id, username,
-                            task.get("complete"), task.get("title")])
+                            task.get("completed"), task.get("title")])
