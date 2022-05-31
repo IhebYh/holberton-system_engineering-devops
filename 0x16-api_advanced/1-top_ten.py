@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-number_of_subscribers function
+top_ten function
 """
 
 import requests
 
 
-def number_of_subscribers(subbreddit):
+def top_ten(subbreddit):
     """
     a function that queries REDDIT API and returns
-    the number of subscribers
+    the top ten posts in a subbredit
     """
     if subbreddit is None or type(subbreddit) is not str:
         print(None)
