@@ -14,6 +14,7 @@ def number_of_subscribers(subbreddit):
     if subbreddit is None or type(subbreddit) is not str:
         return 0
     req = requests.get("https://www.reddit.com/r/{}/about.json"
-                       .format(subbreddit))
+                       .format(subbreddit),
+                       headers={'User-Agent': 'RedditAPI(by IhebYh)'}).json()
     subs_number = req.get("data", {}).get("subscribers", 0)
     return subs_number
